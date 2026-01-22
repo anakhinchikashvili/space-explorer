@@ -25,12 +25,10 @@ export const translations = {
       showDetails: 'დეტალების ნახვა'
     },
     gallery: {
-      title: 'მარსის გალერეა',
-      subtitle: 'მარსის როვერის ფოტოები',
-      rover: 'როვერი',
-      camera: 'კამერა',
-      date: 'თარიღი',
-      noPhotos: 'ფოტოები არ მოიძებნა'
+      title: 'NASA Gallery',
+      subtitle: 'Space Photos',
+      date: 'Date',
+      noPhotos: 'No photos found'
     },
     footer: {
       rights: 'ყველა უფლება დაცულია',
@@ -63,12 +61,10 @@ export const translations = {
       showDetails: 'Show Details'
     },
     gallery: {
-      title: 'Mars Gallery',
-      subtitle: 'Mars Rover Photos',
-      rover: 'Rover',
-      camera: 'Camera',
-      date: 'Date',
-      noPhotos: 'No photos found'
+      title: 'NASA გალერეა', 
+      subtitle: 'კოსმოსის ფოტოები',
+      date: 'თარიღი',
+      noPhotos: 'ფოტოები არ მოიძებნა'
     },
     footer: {
       rights: 'All Rights Reserved',

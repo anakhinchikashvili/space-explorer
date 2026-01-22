@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { translations } from '../../utils/translations';
@@ -6,7 +7,6 @@ import Card from '../common/Card';
 import Modal from '../common/Modal';
 import Loading from '../common/Loading';
 import './GalleryPage.css';
-
 
 
 export default function GalleryPage() {
@@ -20,31 +20,42 @@ export default function GalleryPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    const fetchMarsPhotos = async () => {
+    const fetchNASAImages = async () => {
       try {
         setLoading(true);
         
-        // Use different dates instead of sols
-        const dates = ['2024-01-15', '2023-12-01', '2023-06-15', '2022-01-01'];
-        let data;
+        // Search for space images
+        const searchTerms = ['mars rover', 'mars', 'space', 'galaxy'];
+        let items = [];
         
-        for (const date of dates) {
+        for (const term of searchTerms) {
           try {
-            data = await nasaAPI.getMarsPhotos('curiosity', date);
-            if (data.photos && data.photos.length > 0) {
-              console.log(`Found photos for date: ${date}`);
+            const data = await nasaAPI.searchImages(term, 'image');
+            if (data.collection && data.collection.items && data.collection.items.length > 0) {
+              items = data.collection.items;
+              console.log(`Found images for: ${term}`);
               break;
             }
           } catch (e) {
-            console.log(`Date ${date} failed, trying next...`);
+            console.log(`Search term "${term}" failed, trying next...`);
           }
         }
         
-        if (data && data.photos && data.photos.length > 0) {
-          setPhotos(data.photos.slice(0, 12));
-          localStorage.setItem('marsPhotos', JSON.stringify(data.photos.slice(0, 12)));
+        if (items.length > 0) {
+          // Transform data to match our display format
+          const formattedPhotos = items.slice(0, 12).map((item, index) => ({
+            id: item.data[0].nasa_id || index,
+            img_src: item.links?.[0]?.href || '',
+            title: item.data[0].title || 'NASA Image',
+            description: item.data[0].description || '',
+            date: item.data[0].date_created || '',
+            photographer: item.data[0].photographer || item.data[0].center || 'NASA'
+          }));
+          
+          setPhotos(formattedPhotos);
+          localStorage.setItem('nasaImages', JSON.stringify(formattedPhotos));
         } else {
-          setError('No photos found for any date');
+          setError('No images found');
         }
       } catch (err) {
         setError(err.message);
@@ -54,12 +65,12 @@ export default function GalleryPage() {
     };
 
     // Check local storage first
-    const cachedPhotos = localStorage.getItem('marsPhotos');
+    const cachedPhotos = localStorage.getItem('nasaImages');
     if (cachedPhotos) {
       setPhotos(JSON.parse(cachedPhotos));
       setLoading(false);
     } else {
-      fetchMarsPhotos();
+      fetchNASAImages();
     }
   }, []);
 
@@ -106,12 +117,12 @@ export default function GalleryPage() {
               >
                 <img 
                   src={photo.img_src} 
-                  alt={`Mars ${photo.camera.full_name}`}
+                  alt={photo.title}
                   loading="lazy"
                 />
                 <div className="photo-info">
-                  <p className="photo-camera">{photo.camera.name}</p>
-                  <p className="photo-date">{photo.earth_date}</p>
+                  <p className="photo-camera">{photo.title}</p>
+                  <p className="photo-date">{photo.date?.split('T')[0]}</p>
                 </div>
               </Card>
             ))}
@@ -121,21 +132,22 @@ export default function GalleryPage() {
         <Modal 
           isOpen={modalOpen} 
           onClose={closeModal}
-          title={selectedPhoto?.camera.full_name}
+          title={selectedPhoto?.title}
         >
           {selectedPhoto && (
             <>
-              <img src={selectedPhoto.img_src} alt="Mars" />
+              <img src={selectedPhoto.img_src} alt={selectedPhoto.title} />
               <div className="modal-info">
-                <p><strong>{t.rover}:</strong> {selectedPhoto.rover.name}</p>
-                <p><strong>{t.camera}:</strong> {selectedPhoto.camera.full_name}</p>
-                <p><strong>{t.date}:</strong> {selectedPhoto.earth_date}</p>
-                <p><strong>Sol:</strong> {selectedPhoto.sol}</p>
+                <p><strong>{t.date}:</strong> {selectedPhoto.date?.split('T')[0]}</p>
+                <p><strong>Photographer:</strong> {selectedPhoto.photographer}</p>
+                {selectedPhoto.description && (
+                  <p className="description">{selectedPhoto.description.substring(0, 300)}...</p>
+                )}
               </div>
             </>
           )}
         </Modal>
       </div>
     </div>
-  );
-};
+  )
+}

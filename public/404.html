@@ -7,12 +7,10 @@
       var path = window.location.pathname;
 
       if (path.startsWith(base)) {
-        path = path.replace(base, "");
+        path = path.slice(base.length);
       }
 
-      window.location.replace(
-        base + "/#" + path + window.location.search
-      );
+      window.location.replace(base + path);
     </script>
   </head>
   <body></body>

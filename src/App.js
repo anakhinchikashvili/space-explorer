@@ -11,12 +11,12 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/space-explorer">
         <div className="app">
           <Navbar />
           <main className="main-content">
             <Routes>
-              <Route path="/space-explorer/" element={<HomePage />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/explore" element={<ExplorePage />} />
               <Route path="/gallery" element={<GalleryPage />} />
             </Routes>

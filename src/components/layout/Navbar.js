@@ -19,13 +19,13 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
 
-        <NavLink to="/space-explorer/" className="navbar-logo">
+        <NavLink to="/" className="navbar-logo">
           🚀 Space Explorer
         </NavLink>
 
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
           <NavLink
-            to="/space-explorer/"
+            to="/"
             className={`navbar-link ${isActive('/') ? 'active' : ''}`}
             onClick={() => setIsOpen(false)}
           >

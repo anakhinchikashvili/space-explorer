@@ -16,7 +16,7 @@ function App() {
           <Navbar />
           <main className="main-content">
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/space-explorer/" element={<HomePage />} />
               <Route path="/explore" element={<ExplorePage />} />
               <Route path="/gallery" element={<GalleryPage />} />
             </Routes>

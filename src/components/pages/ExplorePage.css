@@ -1,0 +1,142 @@
+.explore-page {
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+}
+
+.explore-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.explore-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  animation: fadeIn 0.8s ease;
+}
+
+.apod-section {
+  animation: fadeIn 1s ease;
+}
+
+.apod-title {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.apod-card {
+  max-width: 800px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.apod-card img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.apod-video {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.apod-date {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.details-button {
+  width: 100%;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  text-align: center;
+  padding: 3rem;
+}
+
+.error-message h2 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.error-message p {
+  color: var(--text-secondary);
+}
+
+.modal-date {
+  color: var(--accent) !important;
+  font-weight: 600;
+  margin-bottom: 1rem !important;
+}
+
+.copyright {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .explore-page {
+    padding: 1rem;
+  }
+
+  .explore-title {
+    font-size: 2rem;
+  }
+
+  .apod-title {
+    font-size: 1.5rem;
+  }
+
+  .apod-card img {
+    max-height: 350px;
+  }
+
+  .apod-video {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-title {
+    font-size: 1.8rem;
+  }
+
+  .apod-title {
+    font-size: 1.3rem;
+  }
+
+  .apod-card img {
+    max-height: 250px;
+  }
+
+  .apod-video {
+    height: 200px;
+  }
+}

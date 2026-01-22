@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const NASA_API_KEY = 'DEMO_KEY';
+const NASA_API_KEY = 'bxbbl5Kr0h5oBKyka15Vm0b9afC4DOecQ7yWqVey';
 const BASE_URL = 'https://api.nasa.gov';
 
 const apiClient = axios.create({
@@ -23,15 +23,21 @@ export const nasaAPI = {
     }
   },
 
-  // Mars Rover Photos
-  getMarsPhotos: async (rover = 'curiosity', sol = 1000, page = 1) => {
+  // Mars Rover Photos - Using earth_date instead of sol for better results
+  getMarsPhotos: async (rover = 'curiosity', date = '2024-01-01') => {
     try {
       const response = await apiClient.get(`/mars-photos/api/v1/rovers/${rover}/photos`, {
-        params: { sol, page }
+        params: { 
+          earth_date: date // Use earth_date instead of sol
+        },
+        timeout: 10000
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching Mars photos:', error);
+      if (error.response?.status === 404) {
+        console.error('No photos found for this date');
+      }
+      console.error('Error fetching Mars photos:', error.message);
       throw error;
     }
   },

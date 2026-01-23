@@ -1,5 +1,6 @@
 {
   "name": "space-explorer",
+  "homepage": "https://anakhinchikashvili.github.io/space-explorer",  
   "version": "0.1.0",
   "private": true,
   "dependencies": {

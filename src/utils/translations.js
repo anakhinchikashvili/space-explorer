@@ -25,10 +25,10 @@ export const translations = {
       showDetails: 'დეტალების ნახვა'
     },
     gallery: {
-      title: 'NASA Gallery',
-      subtitle: 'Space Photos',
-      date: 'Date',
-      noPhotos: 'No photos found'
+      title: 'NASA გალერეა', 
+      subtitle: 'კოსმოსის ფოტოები',
+      date: 'თარიღი',
+      noPhotos: 'ფოტოები არ მოიძებნა'
     },
     footer: {
       rights: 'ყველა უფლება დაცულია',
@@ -61,10 +61,10 @@ export const translations = {
       showDetails: 'Show Details'
     },
     gallery: {
-      title: 'NASA გალერეა', 
-      subtitle: 'კოსმოსის ფოტოები',
-      date: 'თარიღი',
-      noPhotos: 'ფოტოები არ მოიძებნა'
+      title: 'NASA Gallery',
+      subtitle: 'Space Photos',
+      date: 'Date',
+      noPhotos: 'No photos found'
     },
     footer: {
       rights: 'All Rights Reserved',

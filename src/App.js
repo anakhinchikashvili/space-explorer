@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router basename="/space-explorer">
+      <Router>
         <div className="app">
           <Navbar />
           <main className="main-content">

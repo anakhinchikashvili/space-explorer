@@ -10,46 +10,55 @@
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-
-![Home Dark](public/screenshots/home-dark.png)  
-**მთავარი გვერდი — მუქი თემა**
-
-![Home Light](public/screenshots/home-light.png)  
-**მთავარი გვერდი — ნათელი თემა**
+<p align="center">
+  <img src="public/screenshots/home-dark.png" width="250" />
+  <img src="public/screenshots/home-light.png" width="250" />
+</p>
+<p align="center">
+  <b>მთავარი გვერდი — მუქი თემა</b> · <b>მთავარი გვერდი — ნათელი თემა</b>
+</p>
 
 ---
 
 ### 🔭 Explore Page
-
-![Explore](public/screenshots/explore.png)  
-**NASA Astronomy Picture of the Day (APOD)**
-
-![Explore Modal](public/screenshots/explore-modal.png)  
-**დეტალური ინფორმაცია მოდალურ ფანჯარაში**
+<p align="center">
+  <img src="public/screenshots/explore.png" width="250" />
+  <img src="public/screenshots/explore-modal.png" width="250" />
+</p>
+<p align="center">
+  <b>NASA Astronomy Picture of the Day (APOD)</b> · <b>დეტალური ინფორმაცია მოდალურ ფანჯარაში</b>
+</p>
 
 ---
 
 ### 🖼️ Gallery Page
-
-![Gallery](public/screenshots/gallery.png)  
-**NASA Mars Rover სურათების გალერეა**
-
-![Gallery Modal](public/screenshots/gallery-modal.png)  
-**სურათის დეტალების ნახვა**
+<p align="center">
+  <img src="public/screenshots/gallery.png" width="250" />
+  <img src="public/screenshots/gallery-modal.png" width="250" />
+</p>
+<p align="center">
+  <b>NASA Mars Rover სურათების გალერეა</b> · <b>სურათის დეტალების ნახვა</b>
+</p>
 
 ---
 
 ### 📱 Responsive Design
-
-![Mobile](public/screenshots/home-mobile.png)  
-**მობილური ვერსია**
+<p align="center">
+  <img src="public/screenshots/home-mobile.png" width="220" />
+</p>
+<p align="center">
+  <b>მობილური ვერსია</b>
+</p>
 
 ---
 
 ### 🌍 Bilingual Interface
-
-![Language Switch](public/screenshots/homepage-lang.gif)  
-**ქართული 🇬🇪 / English 🇺🇸 ენის გადართვა**
+<p align="center">
+  <img src="public/screenshots/homepage-lang.gif" width="300" />
+</p>
+<p align="center">
+  <b>ქართული 🇬🇪 / English 🇺🇸 ენის გადართვა</b>
+</p>
 
 ---
 
